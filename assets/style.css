@@ -1,0 +1,482 @@
+
+/* =================================
+   RESUMEIQ — PREMIUM SAAS THEME
+================================= */
+
+:root {
+    --primary: #7654e8;
+    --primary-dark: #6040ce;
+    --background: #f5f4fb;
+    --surface: #ffffff;
+    --text: #20213a;
+    --muted: #85849a;
+}
+
+/* Main application */
+.stApp {
+    background: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: #17152b;
+    border-right: 1px solid #292642;
+}
+
+[data-testid="stSidebar"] * {
+    color: #f5f2ff !important;
+}
+
+[data-testid="stSidebar"] h1 {
+    font-size: 27px;
+    font-weight: 800;
+}
+
+/* Main content */
+.main .block-container {
+    padding: 2.5rem 3rem;
+    max-width: 1400px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--text);
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(135deg, #8062f0, #6243d5);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.65rem 1.4rem;
+    font-weight: 650;
+    transition: 0.2s ease;
+    box-shadow: 0 5px 14px #7654e833;
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #694bdc, #5032bd);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Input fields */
+.stTextInput input,
+.stTextArea textarea {
+    background: white;
+    border: 1px solid #e5e1f2;
+    border-radius: 10px;
+    color: var(--text);
+}
+
+/* Cards and containers */
+[data-testid="stMetric"],
+[data-testid="stExpander"] {
+    background: var(--surface);
+    border: 1px solid #e9e5f5;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 20px #2520440a;
+}
+
+/* Metric values */
+[data-testid="stMetricValue"] {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+/* File uploader */
+[data-testid="stFileUploader"] {
+    background: white;
+    border: 1px dashed #a995ed;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+/* Alerts */
+.stAlert {
+    border-radius: 12px;
+}
+
+/* Dividers */
+hr {
+    border-color: #e8e4f2;
+}
+
+/* Footer */
+footer {
+    visibility: hidden;
+}
+
+/* RESUMEIQ 2.0 - PREMIUM BACKGROUND */
+
+.stApp {
+    background: linear-gradient(
+        135deg,
+        #f5f3ff 0%,
+        #ffffff 50%,
+        #eeeaff 100%
+    );
+    color: #252044;
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+[data-testid="stAppViewContainer"] {
+    background: transparent;
+}
+
+.main .block-container {
+    max-width: 1450px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+/* PREMIUM CONTENT CARDS */
+
+[data-testid="stMetric"],
+[data-testid="stExpander"] {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e6ddff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(90, 60, 150, 0.08);
+}
+
+/* PURPLE METRIC NUMBERS */
+
+[data-testid="stMetricValue"] {
+    color: #7654e8;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+/* SMOOTH INTERACTIONS */
+
+[data-testid="stMetric"],
+[data-testid="stExpander"] {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-testid="stMetric"]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(90, 60, 150, 0.15);
+}
+
+/* FORCE RESUMEIQ PREMIUM BACKGROUND */
+
+html,
+body,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background: #eee9ff !important;
+}
+
+.stApp {
+    background: linear-gradient(
+        135deg,
+        #eee9ff,
+        #ffffff,
+        #e4dcff
+    ) !important;
+}
+
+[data-testid="stMain"] .block-container {
+    background: transparent !important;
+}
+/* RESUMEIQ - VISIBLE PREMIUM PURPLE BACKGROUND */
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background: linear-gradient(
+        135deg,
+        #e9ddff 0%,
+        #f5efff 50%,
+        #e4eaff 100%
+    ) !important;
+}
+
+[data-testid="stMainBlockContainer"] {
+    background: transparent !important;
+}
+/* PREMIUM DARK PURPLE DASHBOARD */
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+.stApp {
+    background: linear-gradient(135deg, #100d24, #211344, #17102e) !important;
+    color: #f5f0ff !important;
+}
+
+[data-testid="stMainBlockContainer"] {
+    background: transparent !important;
+}
+
+h1, h2, h3, p, label {
+    color: #f5f0ff !important;
+}
+
+[data-testid="stMetric"],
+[data-testid="stExpander"] {
+    background: linear-gradient(145deg, #302052, #211638) !important;
+    border: 1px solid #7654e8 !important;
+    border-radius: 18px !important;
+    color: white !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: #b99aff !important;
+}
+/* FIX WHITE CARDS AND INPUT BOXES */
+
+[data-testid="stAlert"],
+[data-testid="stNotificationContent"],
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: #292044 !important;
+    border: 1px solid #7654e8 !important;
+    border-radius: 16px !important;
+    color: #ffffff !important;
+}
+
+[data-testid="stTextInput"] input,
+[data-testid="stTextArea"] textarea,
+[data-testid="stSelectbox"] div[data-baseweb="select"] {
+    background: #292044 !important;
+    color: #ffffff !important;
+    border: 1px solid #7654e8 !important;
+}
+
+[data-testid="stTextInput"] input::placeholder,
+[data-testid="stTextArea"] textarea::placeholder {
+    color: #c5b8df !important;
+}
+
+[data-testid="stAlert"] p,
+[data-testid="stVerticalBlockBorderWrapper"] p {
+    color: #ffffff !important;
+}
+/* FIX DASHBOARD TOOL CARDS */
+[data-testid="stAlert"],
+[data-testid="stAlert"] > div,
+[data-testid="stAlert"] div {
+    background: #30204f !important;
+    color: #ffffff !important;
+    border-color: #7654e8 !important;
+}
+
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] span,
+[data-testid="stAlert"] strong {
+    color: #ffffff !important;
+}
+
+[data-testid="stAlert"] {
+    border: 1px solid #8b68f0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 5px 18px rgba(118, 84, 232, 0.2) !important;
+}
+/* DARK THEME - FILE UPLOADER */
+[data-testid="stFileUploader"] section {
+    background: #30204f !important;
+    border: 1px dashed #9b7cf5 !important;
+    border-radius: 14px !important;
+}
+
+[data-testid="stFileUploader"] section * {
+    color: white !important;
+}
+
+/* DARK THEME - DROPDOWN */
+div[data-baseweb="select"] > div {
+    background-color: #30204f !important;
+    border-color: #9b7cf5 !important;
+}
+
+div[data-baseweb="select"] * {
+    color: white !important;
+}
+
+/* DROPDOWN OPTIONS */
+ul[data-testid="stSelectboxVirtualDropdown"] {
+    background-color: #30204f !important;
+}
+
+li[role="option"] {
+    background-color: #30204f !important;
+    color: white !important;
+}
+/* Remove the outer white file uploader background */
+[data-testid="stFileUploader"] {
+    background: transparent !important;
+}
+
+[data-testid="stFileUploader"] > div {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+[data-testid="stFileUploader"] button {
+    background: linear-gradient(135deg, #7654e8, #6243d5) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stFileUploader"] button:hover {
+    background: #5032bd !important;
+    color: white !important;
+}
+/* Dark blue resume analysis cards */
+[data-testid="stMetric"],
+[data-testid="stExpander"],
+[data-testid="stAlert"] {
+    background: rgba(35, 55, 110, 0.85) !important;
+    color: #ffffff !important;
+    border: 1px solid #7654e8 !important;
+    border-radius: 16px !important;
+}
+
+[data-testid="stMetric"] *,
+[data-testid="stExpander"] *,
+[data-testid="stAlert"] * {
+    color: #ffffff !important;
+}
+/* Dark theme for uploaded file display */
+[data-testid="stFileUploaderFile"] {
+    background: #243b75 !important;
+    border: 1px solid #7654e8 !important;
+    border-radius: 12px !important;
+    color: white !important;
+}
+
+[data-testid="stFileUploaderFile"] * {
+    color: white !important;
+}
+
+[data-testid="stFileUploaderFile"] svg {
+    fill: white !important;
+}
+/* Force uploaded file chip into dark theme */
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFile"],
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFile"] > div {
+    background: #243b75 !important;
+    background-color: #243b75 !important;
+    color: #ffffff !important;
+    border: 1px solid #7654e8 !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stFileUploader"] [data-testid="stFileUploaderFile"] * {
+    color: #ffffff !important;
+}
+/* Fix the white uploaded filename box */
+.stFileChipName {
+    background: #243b75 !important;
+    background-color: #243b75 !important;
+    color: #ffffff !important;
+    border: 1px solid #7654e8 !important;
+    border-radius: 10px !important;
+}
+
+.stFileChipName * {
+    color: #ffffff !important;
+}
+/* RESTORE RESUMEIQ SIDEBAR */
+[data-testid="stSidebar"] {
+    display: block !important;
+    visibility: visible !important;
+    width: 260px !important;
+    min-width: 260px !important;
+    transform: translateX(0) !important;
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    width: 260px !important;
+}
+/* Fix white cards and containers */
+[data-testid="stAlert"],
+[data-testid="stFileUploader"],
+[data-testid="stMetric"],
+.stExpander {
+    background-color: #172554 !important;
+    color: #f8fafc !important;
+    border: 1px solid #3b82f6 !important;
+    border-radius: 14px !important;
+}
+
+[data-testid="stAlert"] *,
+[data-testid="stMetric"] * {
+    color: #f8fafc !important;
+}
+div[data-testid="stAlert"] {
+    background: linear-gradient(135deg, #172554, #1e40af) !important;
+    border: 1px solid #38bdf8 !important;
+    border-radius: 14px !important;
+    color: #ffffff !important;
+}
+
+div[data-testid="stAlert"] p,
+div[data-testid="stAlert"] strong {
+    color: #ffffff !important;
+}
+
+/* RESUMEIQ JOB FINDER BUTTONS */
+
+div[data-testid="stLinkButton"] a {
+    background: linear-gradient(135deg, #063b83, #08265c) !important;
+    color: #ffffff !important;
+    border: 2px solid #00d9ff !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    padding: 14px 20px !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+div[data-testid="stLinkButton"] a:hover {
+    background: linear-gradient(135deg, #0875d1, #0645a5) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 14px rgba(0, 217, 255, 0.45) !important;
+    transform: translateY(-2px);
+}
+
+
+/* FORCE DARK THEME ON ALL RESUMEIQ DOWNLOAD BUTTONS */
+
+[data-testid="stDownloadButton"] button,
+.stDownloadButton button {
+    background: #063b83 !important;
+    background-color: #063b83 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border: 2px solid #00d9ff !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+}
+
+/* DOWNLOAD BUTTON TEXT AND ICON */
+
+[data-testid="stDownloadButton"] button *,
+.stDownloadButton button * {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* HOVER EFFECT */
+
+[data-testid="stDownloadButton"] button:hover,
+.stDownloadButton button:hover {
+    background: #0875d1 !important;
+    background-color: #0875d1 !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 0 14px rgba(0, 217, 255, 0.45) !important;
+}

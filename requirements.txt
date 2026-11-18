@@ -1,0 +1,10 @@
+
+
+streamlit
+pymupdf
+python-docx
+pandas
+plotly
+scikit-learn
+Pillow
+reportlab
