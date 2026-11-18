@@ -59,6 +59,24 @@ auth_db_path = (
 from database.setup_database import setup_database
 
 setup_database()
+import runpy
+
+connection = sqlite3.connect(auth_db_path)
+cursor = connection.cursor()
+
+cursor.execute("SELECT COUNT(*) FROM career_roles")
+role_count = cursor.fetchone()[0]
+
+connection.close()
+
+if role_count == 0:
+    runpy.run_path(
+        str(
+            Path(__file__).parent
+            / "database"
+            / "populate_database.py"
+        )
+    )
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
