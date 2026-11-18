@@ -93,17 +93,29 @@ def setup_database():
         )
     """)
 
-    # 8. Resume history and version management
+    
+# 8. Resume history and version management
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS resume_history (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
             resume_filename TEXT NOT NULL,
             ats_score INTEGER,
             skills_count INTEGER,
             resume_text TEXT,
-            uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+""")
+
+# Add user_id to existing databases without deleting records
+    cursor.execute("PRAGMA table_info(resume_history)")
+    columns = [column[1] for column in cursor.fetchall()]
+
+    if "user_id" not in columns:
+        cursor.execute(
+            "ALTER TABLE resume_history ADD COLUMN user_id INTEGER"
         )
-    """)
 
 # USER REGISTRATION TABLE
 

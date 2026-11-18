@@ -56,7 +56,9 @@ auth_db_path = (
     / "database"
     / "interview_questions.db"
 )
+from database.setup_database import setup_database
 
+setup_database()
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
