@@ -1,10 +1,5 @@
 
-import streamlit as st
-import fitz
-from docx import Document
-import re
-import hashlib
-from pathlib import Path
+
 # =====================================
 # resume IQ - PAGE CONFIGURATION
 # =====================================
@@ -530,10 +525,14 @@ elif page == "Resume Analyzer":
                 cursor.execute(
                     """
                     INSERT INTO resume_history
-                    (resume_filename, resume_text)
-                    VALUES (?, ?)
+                    (user_id, resume_filename, resume_text)
+                    VALUES (?, ?, ?)
                     """,
-                    (uploaded_file.name, resume_text)
+                    (
+                        st.session_state["user_id"],
+                        uploaded_file.name,
+                        resume_text
+                    )
                 )
 
                 st.session_state["resume_history_id"] = cursor.lastrowid
@@ -2723,13 +2722,15 @@ elif page == "Resume History":
         cursor = connection.cursor()
 
         cursor.execute(
-            """
-            SELECT id, resume_filename, ats_score,
-                   skills_count, uploaded_at, resume_text
-            FROM resume_history
-            ORDER BY id DESC
-            """
-        )
+                """
+                SELECT id, resume_filename, ats_score,
+                       skills_count, uploaded_at, resume_text
+                FROM resume_history
+                WHERE user_id = ?
+                ORDER BY id DESC
+                """,
+                (st.session_state["user_id"],)
+            )
 
         history = cursor.fetchall()
         connection.close()
