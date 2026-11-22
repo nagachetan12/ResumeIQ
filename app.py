@@ -3,8 +3,8 @@ import streamlit as st
 import fitz
 from docx import Document
 import re
+import hashlib
 from pathlib import Path
-
 # =====================================
 # resume IQ - PAGE CONFIGURATION
 # =====================================
@@ -141,8 +141,17 @@ if not st.session_state["logged_in"]:
 
                 stored_password = salt + "$" + password_hash
 
+                connection = None
+
                 try:
-                    connection = sqlite3.connect(auth_db_path)
+                    connection = sqlite3.connect(
+                        auth_db_path,
+                        timeout=30
+                    )
+                    connection.execute(
+                        "PRAGMA busy_timeout = 30000"
+                    )
+
                     cursor = connection.cursor()
 
                     cursor.execute(
@@ -159,19 +168,27 @@ if not st.session_state["logged_in"]:
                     )
 
                     connection.commit()
-                    connection.close()
 
                     st.success(
-                        "Account created successfully! "
-                        "Please log in."
+                        "Account created successfully! Please log in."
                     )
 
                 except sqlite3.IntegrityError:
-                    st.error("An account with this email already exists.")
+                    st.error(
+                        "An account with this email already exists."
+                    )
 
-                except sqlite3.Error as error:
-                    st.error(f"Registration error: {error}")
+                except sqlite3.OperationalError as e:
+                    st.error(f"Database error: {e}")
 
+                except Exception as e:
+                    st.error(f"Registration error: {e}")
+
+                finally:
+                    if connection is not None:
+                        connection.close()
+
+                   
     with login_tab:
 
         st.subheader("Login to ResumeIQ")
@@ -504,16 +521,26 @@ elif page == "Resume Analyzer":
 """)
             connection.commit()
 
-            cursor.execute(
-                """
-                INSERT INTO resume_history
-                (resume_filename, resume_text)
-                VALUES (?, ?)
-                """,
-                (uploaded_file.name, resume_text)
-            )
+            file_hash = hashlib.sha256(
+                uploaded_file.getvalue()
+            ).hexdigest()
 
-            connection.commit()
+            if st.session_state.get("last_saved_resume_hash") != file_hash:
+
+                cursor.execute(
+                    """
+                    INSERT INTO resume_history
+                    (resume_filename, resume_text)
+                    VALUES (?, ?)
+                    """,
+                    (uploaded_file.name, resume_text)
+                )
+
+                st.session_state["resume_history_id"] = cursor.lastrowid
+                st.session_state["last_saved_resume_hash"] = file_hash
+
+                connection.commit()
+
             connection.close()
 
         else:
@@ -575,14 +602,14 @@ elif page == "Resume Analyzer":
             """
             UPDATE resume_history
             SET ats_score = ?, skills_count = ?
-            WHERE id = (
-                SELECT MAX(id)
-                FROM resume_history
-            )
+            WHERE id = ?
             """,
-            (score, len(found))
+            (
+                score,
+                len(found),
+                st.session_state.get("resume_history_id")
+            )
         )
-
         connection.commit()
         connection.close()
 
